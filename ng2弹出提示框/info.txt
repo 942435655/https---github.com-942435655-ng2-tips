@@ -1,0 +1,15 @@
+需要在其他的component.html中 添加
+<alert [state]="alertState" [type]="alertType" [text]="alertText" (alert)="alert($event)"></alert>
+另外还需要在component.ts中 添加此方法	
+	alert(param):void {
+		var that = this;
+		if (param) {
+			this.alertType = param.type;
+			this.alertText = param.text;
+			this.alertState = 'active';
+		} else {
+			this.alertType = '';
+			this.alertText = '';
+			this.alertState = 'inactive';
+		}
+	}
